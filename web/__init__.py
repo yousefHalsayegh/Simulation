@@ -7,9 +7,15 @@ def create_app(test_config =None):
     # a simple page that says hello
     @app.route('/')
     def index():
-        file = open('ReadME.md', 'r')
+        file = open('web\content\landing.md', 'r')
 
         rm = markdown(file.read())
         return render_template('landing.html', rm=rm)
+    
+    @app.route('/algorithms')
+    def algorithm():
+
+        return render_template('algo_page.html')
 
     return app
+
