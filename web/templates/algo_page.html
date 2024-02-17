@@ -10,7 +10,7 @@
 
             <!--The part of the 'screen'-->
             <div class="col">
-                {{ output }}
+                
             </div>
 
             <!-- The showcase part -->
@@ -19,11 +19,15 @@
                 <ul class="nav nav-tabs">
                     
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Parameters</a>
+                        <a class="nav-link" href="#">Parameters</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Tree Graph</a>
+                        <a class="nav-link active" href="#">Tree Graph</a>
+                        <div>
+                            {{ tree.render_tree() }}
+                        </div>
+                        
                     </li>
 
                     <li class="nav-item">

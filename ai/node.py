@@ -1,22 +1,32 @@
+import graphviz
 class Node:
 
     def __init__(self, data):
-        self.left = None
-        self.right = None
+        self.children = []
         self.data = data
+        self.dot = graphviz.Digraph('tree') 
 
     def insert_node(self, data):
 
-        if self.data :
-            if data < self.data:
-                if self.left is None:
-                    self.left = Node(data) 
-                else : 
-                    self.left.insert_node(data)
-            else: 
-                if self.right is None:
-                    self.right = Node(data)
-                else:
-                    self.right.insert_node(data)
+        if len(self.children) < 5:
+            self.children.append(Node(data))
         else:
-            self.data = data
+            for i in self.children:
+                i.insert_node(data)
+
+
+    def render_tree(self):
+        self.dot.node(self.data)
+        for i in range(len(self.children)):
+            self.dot.node(self.data)
+            self.dot.edge(self.data, i, constraint='false')
+
+
+    def __str__(self, level=0):
+        ret = "\t"*level+repr(self.data)+"\n"
+        for child in self.children:
+            ret += child.__str__(level+1)
+        return ret
+
+    def __repr__(self):
+        return '<tree node representation>'
