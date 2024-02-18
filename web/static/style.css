@@ -1,25 +1,25 @@
 img{
-    position: relative;
-    width: 50px;
-    height: 50px;
-    padding: 10%;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  padding: 10%;
 }
 
 .dropdown:hover .dropdown-menu {
-    display: block;
-  }
+  display: block;
+}
 
 .navbar .dropdown-menu {
-    margin-top: 0;
-  }
+  margin-top: 0;
+}
 
 .container-fluid .row .col{
-    border-style:solid;
-    margin: 1px;
+  border-style:solid;
+  margin: 1px;
 }
 
 html,body {
-  padding:0;
-  margin:0;
-  height:100%;
+padding:0;
+margin:0;
+height:100%;
 }

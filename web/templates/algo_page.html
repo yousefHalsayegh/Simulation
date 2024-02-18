@@ -16,25 +16,35 @@
             <!-- The showcase part -->
             <div class="col">
                 
-                <ul class="nav nav-tabs">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
                     
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Parameters</a>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="para-tab" data-bs-toggle="tab" data-bs-target="#para" 
+                        type="button" role="tab" aria-controls="para" aria-selected="true">
+                            Parameter
+                        </button>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Tree Graph</a>
-                        <div>
-                            {{ tree.render_tree() }}
-                        </div>
-                        
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Code</a>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="graph-tab" data-bs-toggle="tab" data-bs-target="#graph" 
+                        type="button" role="tab" aria-controls="graph" aria-selected="false">
+                            Graph
+                        </button>
                     </li>
                 
                 </ul>
+
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="para-tab" role="tabpanel" aria-labelledby="para-tab">
+                        {{tree}}
+                    </div>
+
+                    <div class="tab-pane fade" id="graph-tab" role="tabpanel" aria-labelledby="graph-tab">
+                       test
+                    </div>
+
+                </div>
+
                 
             </div>
 
@@ -50,5 +60,4 @@
         </div>
 
    </div>
-
 {%endblock%}

@@ -16,10 +16,13 @@ class Node:
 
 
     def render_tree(self):
-        self.dot.node(self.data)
+        self.dot.node(f'{self.data}')
         for i in range(len(self.children)):
-            self.dot.node(self.data)
-            self.dot.edge(self.data, i, constraint='false')
+            self.dot.node(f'{self.data}')
+            self.dot.edge(f'{self.data}', f'{i}', constraint='false')
+            
+            
+        
 
 
     def __str__(self, level=0):
