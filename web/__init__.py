@@ -1,8 +1,6 @@
 import random as rd
 from flask import Flask, render_template
 from ai.node import Node
-from ai.render import Render
-
 
 def create_app(test_config =None):
     app = Flask(__name__)
@@ -19,13 +17,11 @@ def create_app(test_config =None):
     
     @app.route('/algorithms/<algo>')
     def models(algo):
-        t = Render()
         tree = Node(rd.randint(1,100))
         for i in range(10):
             tree.insert_node(rd.randint(0,100))
-        print(tree)
-        t.save()
+        
         return render_template('algo_page.html', tree=tree)
-
+    
     return app
 
