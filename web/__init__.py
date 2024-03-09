@@ -18,10 +18,11 @@ def create_app(test_config =None):
     @app.route('/algorithms/<algo>')
     def models(algo):
         tree = Node(rd.randint(1,100))
-        for i in range(10):
+        for i in range(30):
             tree.insert_node(rd.randint(0,100))
         
+        tree.render_tree()
+        tree.dot.render(directory = "web/static/Output")
         return render_template('algo_page.html', tree=tree)
     
-    return app
-
+    return app  

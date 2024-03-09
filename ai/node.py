@@ -1,10 +1,12 @@
 import graphviz
 class Node:
-
+    count = 0
     def __init__(self, data):
         self.children = []
         self.data = data
-        self.dot = graphviz.Digraph('tree') 
+        self.id = Node.count
+        self.dot = graphviz.Digraph('tree', format = "png") 
+        Node.count += 1
 
     def insert_node(self, data):
 
@@ -12,18 +14,24 @@ class Node:
             self.children.append(Node(data))
         else:
             for i in self.children:
+                if len(i.children) > 4:
+                    continue
                 i.insert_node(data)
+                return
+                
 
 
     def render_tree(self):
-        self.dot.node(f'{self.data}')
+        self.dot.node(f'{self.id}', label= f'{self.data}')
         for i in range(len(self.children)):
-            self.dot.node(f'{self.data}')
-            self.dot.edge(f'{self.data}', f'{i}', constraint='false')
+            self.dot.node(f'{self.children[i].id}', label = f'{self.children[i].data}')
+            self.dot.edge(f'{self.id}', f'{self.children[i].id}', constraint='true')
+                
             
+        print(self)
             
         
-
+        
 
     def __str__(self, level=0):
         ret = "\t"*level+repr(self.data)+"\n"

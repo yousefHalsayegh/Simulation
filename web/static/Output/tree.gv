@@ -1,0 +1,13 @@
+digraph tree {
+	31 [label=32]
+	32 [label=27]
+	31 -> 32 [constraint=true]
+	33 [label=85]
+	31 -> 33 [constraint=true]
+	34 [label=76]
+	31 -> 34 [constraint=true]
+	35 [label=98]
+	31 -> 35 [constraint=true]
+	36 [label=15]
+	31 -> 36 [constraint=true]
+}

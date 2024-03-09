@@ -10,7 +10,7 @@
 
             <!--The part of the 'screen'-->
             <div class="col">
-                {{tree}}
+                <img id="screen" src="{{url_for('static', filename='Output/tree.gv.png')}}" alt="tree">
             </div>
 
             <!-- The showcase part -->
@@ -28,7 +28,7 @@
                     <li class="nav-item" role="presentation">
                         <button class="nav-link" id="graph-tab" data-bs-toggle="tab" data-bs-target="#graph" 
                         type="button" role="tab" aria-controls="graph" aria-selected="false">
-                            Graph
+                            Code
                         </button>
                     </li>
                 
@@ -60,4 +60,5 @@
         </div>
 
    </div>
+   
 {%endblock%}
